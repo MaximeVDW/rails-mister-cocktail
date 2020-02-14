@@ -1,13 +1,18 @@
 <div class="welcome-banner">
-  <h1 class="text-center">The best cocktails in the world</h1>
+  <h1 class="text-center"><span id="banner-typed-text"></span><br>The best cocktails in the world</h1>
 </div>
 
 <div>
   <div class="cocktail-cards">
     <% @cocktails.each do |cocktail| %>
       <div class="card" style="width: 18rem;">
+
         <div class="cocktail-cards">
-          <img src='<%= cocktail.image %>' class="card-img-top" alt="cocktail-img">
+          <% if cocktail.photo.attached? %>
+            <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <%= cl_image_tag("i6xqlkiez2lvqeisqhsq.jpg", crop: :fill) %>
+          <% end %>
         </div>
         <div class="card-body">
           <p class="card-text">Name : <%= link_to cocktail.name, cocktail_path(cocktail) %></p>

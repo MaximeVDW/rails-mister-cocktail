@@ -1,7 +1,11 @@
 
 <div class="cocktail-show">
-  <div class="banner">
-    <img src="<%= @cocktail.image %>" alt="cocktail img">
+  <div class="banner-show">
+    <% if @cocktail.photo.attached? %>
+      <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= cl_image_tag("i6xqlkiez2lvqeisqhsq.jpg") %>
+    <% end %>
   </div>
 
 
@@ -25,11 +29,10 @@
         <% end %>
       </ul>
       <p class="card-text"><%= link_to 'Add a Dose', new_cocktail_dose_path(@cocktail) %></p>
-
+      <p class="card-text"><%= link_to 'Modify cocktail', edit_cocktail_path(@cocktail) %></p>
     </div>
 
   <%= link_to 'Back to the bar', cocktails_path %>
-
   </div>
 
 </div>
