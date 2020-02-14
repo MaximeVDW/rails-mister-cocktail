@@ -2,24 +2,26 @@
   <h1 class="text-center"><span id="banner-typed-text"></span><br>The best cocktails in the world</h1>
 </div>
 
-<div>
-  <div class="cocktail-cards">
-    <% @cocktails.each do |cocktail| %>
-      <div class="card" style="width: 18rem;">
+<div class="cocktail-cards">
 
-        <div class="cocktail-cards">
-          <% if cocktail.photo.attached? %>
-            <%= cl_image_tag(cocktail.photo.key, height: 300, width: 400, crop: :fill) %>
-          <% else %>
-            <%= cl_image_tag("i6xqlkiez2lvqeisqhsq.jpg", crop: :fill) %>
-          <% end %>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Name : <%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-          <p class="card-text"><%= link_to 'Add a Dose', new_cocktail_dose_path(cocktail) %></p>
-          <p class="card-text"><%= link_to 'Delete', cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %></p>
-        </div>
+  <% @cocktails.each do |cocktail| %>
+
+    <div class="cocktail-card">
+
+      <% if cocktail.photo.attached? %>
+          <%= cl_image_tag(cocktail.photo.key, height: 300, width: 400, crop: :fill) %>
+      <% else %>
+        <%= cl_image_tag("standard_xsvire.jpg", crop: :fill) %>
+      <% end %>
+
+      <div class="card-info">
+        <h4><%= link_to cocktail.name, cocktail_path(cocktail) %></h4>
+        <p><%= link_to 'Add a Dose', new_cocktail_dose_path(cocktail) %></p>
+        <p><%= link_to 'Delete', cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %></p>
       </div>
-    <% end %>
-  </div>
+
+    </div>
+
+  <% end %>
 </div>
+
