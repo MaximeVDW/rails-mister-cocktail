@@ -9,7 +9,7 @@
 
         <div class="cocktail-cards">
           <% if cocktail.photo.attached? %>
-            <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag(cocktail.photo.key, height: 300, width: 400, crop: :fill) %>
           <% else %>
             <%= cl_image_tag("i6xqlkiez2lvqeisqhsq.jpg", crop: :fill) %>
           <% end %>
