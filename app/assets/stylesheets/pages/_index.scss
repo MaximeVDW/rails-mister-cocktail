@@ -1,2 +1,19 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show";
+
+body {
+  background-color: rgb(100, 100, 100);
+}
+
+.welcome-banner {
+  background-image: url('https://thebeaumontinn.com/wp-content/uploads/2019/06/mixology-the-beaumont-inn.jpg');
+  height: 50vh;
+  margin-bottom: 30px;
+
+  h1 {
+    color: white;
+  }
+}
+
+

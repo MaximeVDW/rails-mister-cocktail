@@ -1,0 +1,26 @@
+.cocktail-cards {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+}
+
+.cocktail-card {
+  display: flex;
+  align-item : center;
+  width: 300;
+  height: 400;
+  background-color: white;
+}
+
+.cocktail-card-img {
+  width: 100%;
+  height: 80%;
+}
+
+
+.cocktail-card-name {
+  color: grey;
+  text-decoration: none;
+}

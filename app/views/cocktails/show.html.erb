@@ -1,0 +1,35 @@
+
+<div class="cocktail-show">
+  <div class="banner">
+    <img src="<%= @cocktail.image %>" alt="cocktail img">
+  </div>
+
+
+  <div class="show-body">
+
+    <div class="show-title">
+
+      <h1><%= @cocktail.name %></h1>
+
+    </div>
+
+    <div>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li>
+            <% ingredient = Ingredient.find(dose.ingredient_id) %>
+            <%= ingredient.name %>
+            <%= dose.description %>
+            <%= link_to 'Delete dose', cocktail_dose_path(@cocktail.doses) %>
+          </li>
+        <% end %>
+      </ul>
+      <p class="card-text"><%= link_to 'Add a Dose', new_cocktail_dose_path(@cocktail) %></p>
+
+    </div>
+
+  <%= link_to 'Back to the bar', cocktails_path %>
+
+  </div>
+
+</div>
